@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameSeed - Plant the Future of Gaming</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2ECC71',
+                        secondary: '#F39C12',
+                        dark: '#1A1A2E',
+                        'dark-light': '#2C2C54'
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        @keyframes glow {
+            from { box-shadow: 0 0 20px #2ECC71; }
+            to { box-shadow: 0 0 30px #2ECC71, 0 0 40px #2ECC71; }
+        }
+    </style>
+</head>
+<body class="bg-dark text-white font-sans">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-dark/90 backdrop-blur-sm z-50 border-b border-primary/20">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center">
+                        <span class="text-dark font-bold text-lg">🌱</span>
+                    </div>
+                    <span class="text-2xl font-bold text-primary">GameSeed</span>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#features" class="hover:text-primary transition-colors">Features</a>
+                    <a href="#developers" class="hover:text-primary transition-colors">For Developers</a>
+                    <a href="#scouts" class="hover:text-primary transition-colors">For Scouts</a>
+                    <a href="#pricing" class="hover:text-primary transition-colors">Pricing</a>
+                </div>
+                <button class="md:hidden text-primary">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center bg-gradient-to-br from-dark via-dark-light to-dark pt-20">
+        <div class="container mx-auto px-6 text-center">
+            <div class="animate-float mb-8">
+                <div class="w-32 h-32 mx-auto bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center mb-6 animate-glow">
+                    <span class="text-dark text-6xl">🎮</span>
+                </div>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                Plant the <span class="text-primary">Future</span> of Gaming
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                Discover indie games before they bloom. Connect developers with opportunities. Build the gaming ecosystem of tomorrow.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-primary hover:bg-green-600 text-dark font-bold py-4 px-8 rounded-lg transition-all transform hover:scale-105">
+                    Download for iOS
+                </button>
+                <button class="bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-dark font-bold py-4 px-8 rounded-lg transition-all">
+                    Download for Android
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-dark-light">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">Core Features</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Smart Discovery -->
+                <div class="bg-dark p-8 rounded-xl border border-primary/20 hover:border-primary/50 transition-all hover:transform hover:scale-105">
+                    <div class="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center mb-6">
+                        <span class="text-primary text-3xl">🧠</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Smart Discovery</h3>
+                    <p class="text-gray-300 mb-4">AI-powered personalization that learns your preferences and surfaces games you'll actually love, not just popular ones.</p>
+                    <ul class="text-sm text-gray-400 space-y-2">
+                        <li>• Personalized recommendations</li>
+                        <li>• Genre-based filtering</li>
+                        <li>• Platform preferences</li>
+                        <li>• Hidden gems spotlight</li>
+                    </ul>
+                </div>
+
+                <!-- Developer Portal -->
+                <div class="bg-dark p-8 rounded-xl border border-primary/20 hover:border-primary/50 transition-all hover:transform hover:scale-105">
+                    <div class="w-16 h-16 bg-secondary/20 rounded-lg flex items-center justify-center mb-6">
+                        <span class="text-secondary text-3xl">👨‍💻</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Developer Portal</h3>
+                    <p class="text-gray-300 mb-4">Complete toolkit for indie developers to showcase their games and connect with their audience.</p>
+                    <ul class="text-sm text-gray-400 space-y-2">
+                        <li>• Rich game profiles</li>
+                        <li>• Analytics dashboard</li>
+                        <li>• Follower system</li>
+                        <li>• Launch notifications</li>
+                    </ul>
+                </div>
+
+                <!-- Community Reviews -->
+                <div class="bg-dark p-8 rounded-xl border border-primary/20 hover:border-primary/50 transition-all hover:transform hover:scale-105">
+                    <div class="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center mb-6">
+                        <span class="text-primary text-3xl">⭐</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Authentic Reviews</h3>
+                    <p class="text-gray-300 mb-4">Verified reviews from real players with play-time requirements to ensure authenticity.</p>
+                    <ul class="text-sm text-gray-400 space-y-2">
+                        <li>• Verified play-time reviews</li>
+                        <li>• Community discussions</li>
+                        <li>• Developer responses</li>
+                        <li>• Helpful voting system</li>
+                    </ul>
+                </div>
+
+                <!-- Scout Network -->
+                <div class="bg-dark p-8 rounded-xl border border-primary/20 hover:border-primary/50 transition-all hover:transform hover:scale-105">
+                    <div class="w-16 h-16 bg-secondary/20 rounded-lg flex items-center justify-center mb-6">
+                        <span class="text-secondary text-3xl">💼</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Scout Network</h3>
+                    <p class="text-gray-300 mb-4">Connect indie developers with investors and scouts looking for the next big gaming opportunity.</p>
+                    <ul class="text-sm text-gray-400 space-y-2">
+                        <li>• Verified investor profiles</li>
+                        <li>• Regional focus areas</li>
+                        <li>• Direct messaging</li>
+                        <li>• Investment matching</li>
+                    </ul>
+                </div>
+
+                <!-- Awards System -->
+                <div class="bg-dark p-8 rounded-xl border border-primary/20 hover:border-primary/50 transition-all hover:transform hover:scale-105">
+                    <div class="w-16 h-16 bg-primary/20 rounded-lg flex items-center justify-center mb-6">
+                        <span class="text-primary text-3xl">🏆</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Awards System</h3>
+                    <p class="text-gray-300 mb-4">Recognition system celebrating outstanding indie games through editor and community choices.</p>
+                    <ul class="text-sm text-gray-400 space-y-2">
+                        <li>• Editor's Choice awards</li>
+                        <li>• User Choice voting</li>
+                        <li>• Rising Star recognition</li>
+                        <li>• Innovation spotlights</li>
+                    </ul>
+                </div>
+
+                <!-- Multi-Platform -->
+                <div class="bg-dark p-8 rounded-xl border border-primary/20 hover:border-primary/50 transition-all hover:transform hover:scale-105">
+                    <div class="w-16 h-16 bg-secondary/20 rounded-lg flex items-center justify-center mb-6">
+                        <span class="text-secondary text-3xl">📱</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Multi-Platform</h3>
+                    <p class="text-gray-300 mb-4">Discover games across all platforms - mobile, VR/AR, PC, and console with unified tracking.</p>
+                    <ul class="text-sm text-gray-400 space-y-2">
+                        <li>• iOS & Android games</li>
+                        <li>• VR/AR experiences</li>
+                        <li>• PC & console titles</li>
+                        <li>• Cross-platform wishlists</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- For Developers Section -->
+    <section id="developers" class="py-20 bg-dark">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-8">Built for Developers</h2>
+                <p class="text-xl text-gray-300 mb-12">Get the visibility your games deserve without fighting rigged algorithms</p>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-dark-light p-8 rounded-xl">
+                        <h3 class="text-2xl font-bold mb-4 text-primary">Fair Discovery</h3>
+                        <p class="text-gray-300">Quality games get noticed based on merit, not marketing budget. Our algorithm prioritizes engagement and authentic reviews.</p>
+                    </div>
+                    <div class="bg-dark-light p-8 rounded-xl">
+                        <h3 class="text-2xl font-bold mb-4 text-secondary">Direct Funding</h3>
+                        <p class="text-gray-300">Connect directly with scouts and investors interested in indie games. Build relationships that fund your next project.</p>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-primary/20 to-secondary/20 p-8 rounded-xl border border-primary/20">
+                    <h3 class="text-3xl font-bold mb-4">Developer Analytics Dashboard</h3>
+                    <div class="grid md:grid-cols-3 gap-6 mt-8">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary">15.2K</div>
+                            <div class="text-gray-400">Profile Views</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-secondary">847</div>
+                            <div class="text-gray-400">Wishlists Added</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary">23</div>
+                            <div class="text-gray-400">Scout Inquiries</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- For Scouts Section -->
+    <section id="scouts" class="py-20 bg-dark-light">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-8">Scout Network</h2>
+                <p class="text-xl text-gray-300 text-center mb-12">Discover the next generation of gaming talent before they hit mainstream</p>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-6 text-secondary">Regional Focus Areas</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-4 p-4 bg-dark rounded-lg">
+                                <span class="text-2xl">🌏</span>
+                                <div>
+                                    <div class="font-bold">Asia Pacific</div>
+                                    <div class="text-gray-400">142 active developers</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4 p-4 bg-dark rounded-lg">
+                                <span class="text-2xl">🌍</span>
+                                <div>
+                                    <div class="font-bold">Africa & Middle East</div>
+                                    <div class="text-gray-400">87 active developers</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4 p-4 bg-dark rounded-lg">
+                                <span class="text-2xl">🌎</span>
+                                <div>
+                                    <div class="font-bold">Americas</div>
+                                    <div class="text-gray-400">203 active developers</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-dark p-8 rounded-xl border border-secondary/20">
+                        <h4 class="text-2xl font-bold mb-6">Scout Dashboard Features</h4>
+                        <ul class="space-y-4">
+                            <li class="flex items-center space-x-3">
+                                <span class="text-secondary">✓</span>
+                                <span>Advanced developer analytics</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <span class="text-secondary">✓</span>
+                                <span>Direct messaging with developers</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <span class="text-secondary">✓</span>
+                                <span>Investment opportunity alerts</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <span class="text-secondary">✓</span>
+                                <span>Market trend reports</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <span class="text-secondary">✓</span>
+                                <span>Portfolio tracking tools</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-dark">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">Choose Your Plan</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Free Plan -->
+                <div class="bg-dark-light p-8 rounded-xl border border-gray-600">
+                    <h3 class="text-2xl font-bold mb-4">Free</h3>
+                    <div class="text-4xl font-bold mb-6">$0<span class="text-lg text-gray-400">/month</span></div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center space-x-3">
+                            <span class="text-primary">✓</span>
+                            <span>Basic game discovery</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <span class="text-primary">✓</span>
+                            <span>Follow developers</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <span class="text-primary">✓</span>
+                            <span>Community reviews</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <span class="text-gray-400">✓</span>
+                            <span class="text-gray-400">Includes ads</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-gray-600 hover:bg-gray-500 text-white py-3 rounded-lg transition-colors">
+                        Get Started
+                    </button>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="bg-gradient-to-b from-primary/20 to-primary/5 p-8 rounded-xl border-2 border-primary relative">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-primary text-dark px-4 py-1 rounded-full text-sm font-bold">
+                        Most Popular
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Premium</h3>
+                    <div class="text-4xl font-bold mb-6">$4.99<span class="text-lg text-gray-400">/month</span></div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center space-x-3">
+                            <span class="text-primary">✓</span>
+                            <span>Ad-free experience</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <span class="text-primary">✓</span>
+                            <span>Advanced filters</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <span class="text-primary">✓</span>
+                            <span>Early award access</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <span class="text-primary">✓</span>
+                            <span>Priority support</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-primary hover:bg-green-600 text-dark font-bold py-3 rounded-lg transition-colors">
+                        Start Free Trial
+                    </button>
+                </div>
+
+                <!-- Scout Plan -->
+                <div class="bg-dark-light p-8 rounded-xl border border-secondary/50">
+                    <h3 class="text-2xl font-bold mb-4">Scout Network</h3>
+                    <div class="text-4xl font-bold mb-6">$19.99<span class="text-lg text-gray-400">/month</span></div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center space-x-3">
+                            <span class="text-secondary">✓</span>
+                            <span>Everything in Premium</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <span class="text-secondary">✓</span>
+                            <span>Developer analytics</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <span class="text-secondary">✓</span>
+                            <span>Direct messaging</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <span class="text-secondary">✓</span>
+                            <span>Investment opportunities</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-secondary hover:bg-orange-600 text-dark font-bold py-3 rounded-lg transition-colors">
+                        Join Scout Network
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-primary/20 to-secondary/20">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8">Ready to Discover Your Next Favorite Game?</h2>
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                Join thousands of gamers who've already discovered their next obsession through GameSeed
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-primary hover:bg-green-600 text-dark font-bold py-4 px-8 rounded-lg transition-all transform hover:scale-105">
+                    Download Now
+                </button>
+                <button class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-dark font-bold py-4 px-8 rounded-lg transition-all">
+                    Learn More
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark border-t border-primary/20 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center">
+                            <span class="text-dark font-bold text-lg">🌱</span>
+                        </div>
+                        <span class="text-2xl font-bold text-primary">GameSeed</span>
+                    </div>
+                    <p class="text-gray-400">Plant the Future of Gaming</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Product</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-primary transition-colors">Features</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Pricing</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">For Developers</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Scout Network</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Support</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-primary transition-colors">Help Center</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Community</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-primary transition-colors">Discord</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Twitter</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Reddit</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 GameSeed. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Smooth scroll JavaScript -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Simple mobile menu toggle
+        const mobileMenuButton = document.querySelector('button.md\\:hidden');
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', () => {
+                // You can add mobile menu implementation here
+                alert('Mobile menu functionality can be added here');
+            });
+        }
+    </script>
+</body>
+</html>
