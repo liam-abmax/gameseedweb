@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Listings - GameSeed</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00D9FF',
+                        secondary: '#FF006E',
+                        accent: '#39FF14',
+                        dark: '#0A0E27',
+                        'dark-card': '#16213E',
+                        'dark-light': '#1a1a3a'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0A0E27 0%, #1a0d35 50%, #0A0E27 100%);
+            background-attachment: fixed;
+        }
+
+        .glass-effect {
+            background: rgba(22, 33, 62, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #00D9FF 0%, #FF006E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00D9FF 0%, #0099FF 100%);
+            color: #0A0E27;
+            font-weight: 700;
+            padding: 10px 24px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.4);
+        }
+
+        .game-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 217, 255, 0.2);
+        }
+
+        .game-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 217, 255, 0.6);
+            box-shadow: 0 20px 40px rgba(0, 217, 255, 0.2);
+        }
+
+        .rating-stars {
+            display: flex;
+            gap: 4px;
+        }
+
+        .rating-stars .star {
+            width: 18px;
+            height: 18px;
+            background: linear-gradient(135deg, #00D9FF, #FF006E);
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 6px 12px;
+            background: rgba(0, 217, 255, 0.1);
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            border-radius: 20px;
+            font-size: 12px;
+            color: #00D9FF;
+        }
+    </style>
+</head>
+<body class="bg-dark text-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-effect border-b">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <span class="text-2xl font-black gradient-text">GameSeed</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-300 hover:text-primary">Home</a>
+                    <a href="listings.html" class="text-primary font-bold">Games</a>
+                    <a href="dashboard.html" class="text-gray-300 hover:text-primary">Dashboard</a>
+                </div>
+                <button class="btn-primary text-sm">Sign In</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="pt-20 min-h-screen">
+        <div class="container mx-auto px-6 py-12">
+            <!-- Header -->
+            <div class="mb-12">
+                <h1 class="text-5xl font-black mb-4">
+                    Discover Indie <span class="gradient-text">Games</span>
+                </h1>
+                <p class="text-gray-300 text-xl">Browse 1,247+ games across all platforms</p>
+            </div>
+
+            <!-- Filters & Search -->
+            <div class="glass-effect p-6 rounded-xl mb-12">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <!-- Search -->
+                    <div>
+                        <input type="text" placeholder="Search games..." 
+                            class="w-full px-4 py-3 rounded-lg bg-dark-light border border-primary/20 text-white placeholder-gray-500 focus:border-primary outline-none">
+                    </div>
+                    
+                    <!-- Genre Filter -->
+                    <div>
+                        <select class="w-full px-4 py-3 rounded-lg bg-dark-light border border-primary/20 text-white focus:border-primary outline-none">
+                            <option>All Genres</option>
+                            <option>Action</option>
+                            <option>Puzzle</option>
+                            <option>RPG</option>
+                            <option>Indie</option>
+                        </select>
+                    </div>
+
+                    <!-- Platform Filter -->
+                    <div>
+                        <select class="w-full px-4 py-3 rounded-lg bg-dark-light border border-primary/20 text-white focus:border-primary outline-none">
+                            <option>All Platforms</option>
+                            <option>iOS</option>
+                            <option>Android</option>
+                            <option>PC</option>
+                            <option>Console</option>
+                        </select>
+                    </div>
+
+                    <!-- Sort -->
+                    <div>
+                        <select class="w-full px-4 py-3 rounded-lg bg-dark-light border border-primary/20 text-white focus:border-primary outline-none">
+                            <option>Trending</option>
+                            <option>Most Wishlist</option>
+                            <option>Highest Rated</option>
+                            <option>Newest</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Games Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                
+                <!-- Game Card 1 -->
+                <div class="glass-effect p-0 rounded-xl overflow-hidden game-card group">
+                    <div class="relative h-48 bg-gradient-to-r from-primary/20 to-secondary/20 overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-transparent"></div>
+                        <span class="absolute top-3 right-3 bg-secondary text-dark px-3 py-1 rounded text-sm font-bold">Trending</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-black mb-2">Neon Nights</h3>
+                        <p class="text-gray-400 text-sm mb-4">A cyberpunk adventure where you uncover the city's secrets.</p>
+                        
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="rating-stars">
+                                <span class="star"></span>
+                                <span class="star"></span>
+                                <span class="star"></span>
+                                <span class="star"></span>
+                                <span class="star"></span>
+                            </div>
+                            <span class="text-sm text-gray-400">(2,847)</span>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag">Action</span>
+                            <span class="tag">Sci-Fi</span>
+                            <span class="tag">Story</span>
+                        </div>
+
+                        <div class="flex space-x-2">
+                            <button class="flex-1 btn-primary text-sm">Wishlist</button>
+                            <button class="flex-1 px-3 py-2 border border-primary/50 rounded text-primary hover:bg-primary/10 transition">View</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 2 -->
+                <div class="glass-effect p-0 rounded-xl overflow-hidden game-card group">
+                    <div class="relative h-48 bg-gradient-to-r from-primary/20 to-secondary/20 overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-transparent"></div>
+                        <span class="absolute top-3 right-3 bg-accent text-dark px-3 py-1 rounded text-sm font-bold">Editor's Pick</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-black mb-2">Pixel Dreams</h3>
+                        <p class="text-gray-400 text-sm mb-4">Retro-inspired platformer with modern mechanics.</p>
+                        
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="rating-stars">
+                                <span class="star"></span>
+                                <span class="star"></span>
+                                <span class="star"></span>
+                                <span class="star"></span>
+                                <span class="star"></span>
+                            </div>
+                            <span class="text-sm text-gray-400">(1,524)</span>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag">Puzzle</span>
+                            <span class="tag">Pixel Art</span>
+                            <span class="tag">Indie</span>
+                        </div>
+
+                        <div class="flex space-x-2">
+                            <button class="flex-1 btn-primary text-sm">Wishlist</button>
+                            <button class="flex-1 px-3 py-2 border border-primary/50 rounded text-primary hover:bg-primary/10 transition">View</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 3 -->
+                <div class="glass-effect p-0 rounded-xl overflow-hidden game-card group">
+                    <div class="relative h-48 bg-gradient-to-r from-primary/20 to-secondary/20 overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-transparent"></div>
+                        <span class="absolute top-3 right-3 bg-primary text-dark px-3 py-1 rounded text-sm font-bold">New</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-black mb-2">Quantum Realm</h3>
+                        <p class="text-gray-400 text-sm mb-4">Mind-bending puzzles in a quantum-powered universe.</p>
+                        
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="rating-stars">
+                                <span class="star"></span>
+                                <span class="star"></span>
+                                <span class="star"></span>
+                                <span class="star"></span>
+                            </div>
+                            <span class="text-sm text-gray-400">(847)</span>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag">Puzzle</span>
+                            <span class="tag">Sci-Fi</span>
+                        </div>
+
+                        <div class="flex space-x-2">
+                            <button class="flex-1 btn-primary text-sm">Wishlist</button>
+                            <button class="flex-1 px-3 py-2 border border-primary/50 rounded text-primary hover:bg-primary/10 transition">View</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 4 -->
+                <div class="glass-effect p-0 rounded-xl overflow-hidden game-card group">
+                    <div class="relative h-48 bg-gradient-to-r from-primary/20 to-secondary/20 overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-black mb-2">Echo Valley</h3>
+                        <p class="text-gray-400 text-sm mb-4">Explore a beautiful landscape with ambient storytelling.</p>
+                        
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="rating-stars">
+                                <span class="star"></span>
+                                <span class="star"></span>
+                                <span class="star"></span>
+                                <span class="star"></span>
+                                <span class="star"></span>
+                            </div>
+                            <span class="text-sm text-gray-400">(3,102)</span>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag">Adventure</span>
+                            <span class="tag">Exploration</span>
+                        </div>
+
+                        <div class="flex space-x-2">
+                            <button class="flex-1 btn-primary text-sm">Wishlist</button>
+                            <button class="flex-1 px-3 py-2 border border-primary/50 rounded text-primary hover:bg-primary/10 transition">View</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 5 -->
+                <div class="glass-effect p-0 rounded-xl overflow-hidden game-card group">
+                    <div class="relative h-48 bg-gradient-to-r from-primary/20 to-secondary/20 overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-black mb-2">Neural Protocol</h3>
+                        <p class="text-gray-400 text-sm mb-4">A roguelike with procedural generation and tactical gameplay.</p>
+                        
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="rating-stars">
+                                <span class="star"></span>
+                                <span class="star"></span>
+                                <span class="star"></span>
+                                <span class="star"></span>
+                            </div>
+                            <span class="text-sm text-gray-400">(1,893)</span>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag">Roguelike</span>
+                            <span class="tag">Strategy</span>
+                            <span class="tag">Sci-Fi</span>
+                        </div>
+
+                        <div class="flex space-x-2">
+                            <button class="flex-1 btn-primary text-sm">Wishlist</button>
+                            <button class="flex-1 px-3 py-2 border border-primary/50 rounded text-primary hover:bg-primary/10 transition">View</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 6 -->
+                <div class="glass-effect p-0 rounded-xl overflow-hidden game-card group">
+                    <div class="relative h-48 bg-gradient-to-r from-primary/20 to-secondary/20 overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-black mb-2">Crimson Tides</h3>
+                        <p class="text-gray-400 text-sm mb-4">Narrative-driven adventure on a mysterious archipelago.</p>
+                        
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="rating-stars">
+                                <span class="star"></span>
+                                <span class="star"></span>
+                                <span class="star"></span>
+                                <span class="star"></span>
+                                <span class="star"></span>
+                            </div>
+                            <span class="text-sm text-gray-400">(2,456)</span>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag">Story</span>
+                            <span class="tag">Adventure</span>
+                            <span class="tag">Mystery</span>
+                        </div>
+
+                        <div class="flex space-x-2">
+                            <button class="flex-1 btn-primary text-sm">Wishlist</button>
+                            <button class="flex-1 px-3 py-2 border border-primary/50 rounded text-primary hover:bg-primary/10 transition">View</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Load More -->
+            <div class="text-center">
+                <button class="btn-primary px-8 py-3 text-lg">Load More Games</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-primary/20 py-12 mt-20">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <p>© 2026 GameSeed. Discovering indie games since day one.</p>
+        </div>
+    </footer>
+</body>
+</html>
